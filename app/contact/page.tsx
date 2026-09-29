@@ -1,16 +1,16 @@
 import { Metadata } from "next";
 
-import { Hero } from "@/components/Hero";
+import { Contact } from "@/components/Contact";
 import { PortfolioLayout } from "@/components/PortfolioLayout";
 
 export const metadata: Metadata = {
-  title: "Home — Maureen Calista Surjo",
+  title: "Contact — Maureen Calista Surjo",
 };
 
-export default function Home() {
+export default function ContactPage() {
   return (
     <PortfolioLayout>
-      <Hero />
+      <Contact />
     </PortfolioLayout>
   );
 }

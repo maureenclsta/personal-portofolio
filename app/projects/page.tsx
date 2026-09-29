@@ -1,16 +1,16 @@
 import { Metadata } from "next";
 
-import { Hero } from "@/components/Hero";
 import { PortfolioLayout } from "@/components/PortfolioLayout";
+import { Projects } from "@/components/Projects";
 
 export const metadata: Metadata = {
-  title: "Home — Maureen Calista Surjo",
+  title: "Projects — Maureen Calista Surjo",
 };
 
-export default function Home() {
+export default function ProjectsPage() {
   return (
     <PortfolioLayout>
-      <Hero />
+      <Projects />
     </PortfolioLayout>
   );
 }
