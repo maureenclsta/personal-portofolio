@@ -83,7 +83,7 @@ export function ProjectDetail({ project }: { project: Project }) {
         <div className="space-y-8">
           <section>
             <h2 className="text-2xl font-bold text-[var(--text-strong)]">Overview</h2>
-            <p className="mt-3 max-w-3xl leading-relaxed text-[var(--muted)]">{project.overview}</p>
+            <p className="mt-3 max-w-3xl text-justify leading-relaxed text-[var(--muted)]">{project.overview}</p>
           </section>
 
           {project.process ? (
@@ -107,7 +107,7 @@ export function ProjectDetail({ project }: { project: Project }) {
 
           <section>
             <h2 className="text-xl font-bold text-[var(--text-strong)]">Why I made this</h2>
-            <p className="mt-2 leading-relaxed text-[var(--muted)]">{project.whyMadeThis ?? "Project background will be added soon."}</p>
+            <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">{project.whyMadeThis ?? "Project background will be added soon."}</p>
           </section>
 
           <section>
@@ -119,7 +119,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                 ))}
               </ul>
             ) : (
-              <p className="mt-2 leading-relaxed text-[var(--muted)]">SDG information will be added once confirmed.</p>
+              <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">SDG information will be added once confirmed.</p>
             )}
           </section>
 
@@ -127,7 +127,7 @@ export function ProjectDetail({ project }: { project: Project }) {
             <h2 className="text-xl font-bold text-[var(--text-strong)]">Key strengths</h2>
             <ul className="mt-3 space-y-2.5">
               {project.strengths.map((strength) => (
-                <li key={strength} className="flex gap-3 leading-relaxed text-[var(--muted)]">
+                <li key={strength} className="flex gap-3 text-justify leading-relaxed text-[var(--muted)]">
                   <svg className="mt-1 h-4 w-4 shrink-0 text-[var(--accent-bright)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="m5 13 4 4L19 7" />
                   </svg>
@@ -139,7 +139,7 @@ export function ProjectDetail({ project }: { project: Project }) {
 
           <section>
             <h2 className="text-xl font-bold text-[var(--text-strong)]">Limitations</h2>
-            <p className="mt-2 leading-relaxed text-[var(--muted)]">{project.limitations ?? "Limitations will be added when confirmed."}</p>
+            <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">{project.limitations ?? "Limitations will be added when confirmed."}</p>
           </section>
         </div>
 

@@ -82,7 +82,7 @@ export function About() {
           <h1 className="mt-4 text-3xl font-black leading-tight tracking-[-0.02em] text-[var(--text-strong)] sm:text-4xl lg:text-5xl">
             A little about how I <span className="text-gradient">learn and build.</span>
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+          <p className="mt-5 text-justify text-base leading-relaxed text-[var(--muted)] sm:text-lg">
             I&apos;m Maureen, a Computer Science undergraduate at BINUS University specializing in Intelligent Systems. I first fell for computing through
             programming languages — learning them felt challenging in a way I genuinely enjoyed. I&apos;m especially curious about AI and machine learning and
             how they become useful in real applications. I also love building web projects and sketching interface ideas. Every new project is a chance to learn

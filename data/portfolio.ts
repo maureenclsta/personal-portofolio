@@ -235,7 +235,7 @@ export const experienceGroups: ExperienceGroup[] = [
           "Answer questions and help students work through issues as they arise.",
           "Support students who feel stuck so they can progress to enrichment or internships.",
         ],
-        documentation: docPhotos("beelingua-mentor", "Beelingua BINUS Mentor"),
+        documentation: [{ src: "/images/experience/beelingua.jpeg", alt: "Beelingua BINUS Mentor — documentation photo" }],
       },
       {
         slug: "cb-kewarganegaraan-biopori",

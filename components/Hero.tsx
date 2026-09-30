@@ -44,10 +44,10 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+            <p className="mt-6 max-w-xl text-justify text-base leading-relaxed text-[var(--muted)] sm:text-lg">
               A <strong className="font-semibold text-[var(--text)]">Computer Science undergraduate at BINUS University</strong> specializing in{" "}
-              <strong className="font-semibold text-[var(--text)]">Intelligent Systems (AI)</strong>. I build intelligent, human-centered applications
-              across AI engineering and web development — and I love turning ideas into things people can actually use.
+              <strong className="font-semibold text-[var(--text)]">Intelligent Systems (AI)</strong>. I build intelligent, human centered applications
+              across AI engineering and web development and I love turning ideas into things people can actually use.
             </p>
           </Reveal>
 
