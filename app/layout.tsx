@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name | Portfolio",
-  description: "Portfolio website for a Computer Science student specializing in Artificial Intelligence and Web Development.",
+  title: "Maureen Calista Surjo | Portfolio",
+  description:
+    "Portfolio of Maureen Calista Surjo — a Computer Science student at BINUS University specializing in Artificial Intelligence, with a passion for Web Development and thoughtful product design.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
