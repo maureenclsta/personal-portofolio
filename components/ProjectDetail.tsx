@@ -49,6 +49,11 @@ function BackLink() {
 }
 
 export function ProjectDetail({ project }: { project: Project }) {
+  // Reuse the exact image shown on the Projects card. The card renders
+  // `thumbnail ?? media`, so we resolve the same way and only show images.
+  const preferred = project.thumbnail ?? project.media;
+  const previewImage = preferred.type === "image" && preferred.src ? preferred : null;
+
   return (
     <article className="panel overflow-hidden">
       {/* Header */}
@@ -84,28 +89,46 @@ export function ProjectDetail({ project }: { project: Project }) {
             </span>
           </div>
 
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary mt-7 px-5 py-3 text-sm"
-          >
-            View GitHub repository
-            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M7 17 17 7" />
-              <path d="M8 7h9v9" />
-            </svg>
-          </a>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary px-5 py-3 text-sm"
+            >
+              View GitHub repository
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7" />
+                <path d="M8 7h9v9" />
+              </svg>
+            </a>
+            {project.demoUrl ? (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost px-5 py-3 text-sm"
+              >
+                View Demo App
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M7 17 17 7" />
+                  <path d="M8 7h9v9" />
+                </svg>
+              </a>
+            ) : null}
+          </div>
         </Reveal>
       </header>
 
-      {/* Media */}
-      <section className="border-y border-[var(--border)] px-5 py-6 sm:px-8 lg:px-12" aria-label={`${project.title} project media`}>
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted-soft)]">Project media</p>
-        <div className="group overflow-hidden rounded-2xl border border-[var(--border)]">
-          <ProjectMedia media={project.media} projectTitle={project.title} autoPlay />
-        </div>
-      </section>
+      {/* Media — same project image used on the Projects card (no video). */}
+      {previewImage?.src ? (
+        <section className="border-y border-[var(--border)] px-5 py-6 sm:px-8 lg:px-12" aria-label={`${project.title} project image`}>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted-soft)]">Project preview</p>
+          <div className="group max-w-md overflow-hidden rounded-2xl border border-[var(--border)]">
+            <ProjectMedia media={previewImage} projectTitle={project.title} compact />
+          </div>
+        </section>
+      ) : null}
 
       {/* Body */}
       <div className="grid gap-10 px-5 py-8 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(260px,0.62fr)] lg:px-12 lg:py-10">

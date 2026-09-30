@@ -31,6 +31,8 @@ export type Project = {
   metrics: { label: string; value: string }[];
   bestModel?: string;
   github: string;
+  /** Optional live app / demo link. Shown as a "View Demo App" button. */
+  demoUrl?: string;
   /** Supports multiple paragraphs when separated by a blank line ("\n\n"). */
   whyMadeThis: string | null;
   sdgs: string[];
@@ -202,8 +204,9 @@ export const projects: Project[] = [
     categories: ["Natural Language Processing", "Machine Learning", "Web Application"],
     overview:
       "Buginator is a web-based NLP application that classifies GitHub issue reports as **Critical** or **Non-Critical**. Users enter an issue description and receive the predicted severity and classification probability through an interactive Streamlit interface.\n\nThe system uses classical machine learning with TF-IDF text features and compares three classification models: Logistic Regression, Multinomial Naive Bayes, and Support Vector Machine (SVM). The application also provides model comparison, data exploration, preprocessing visualization, feature extraction analysis, and evaluation results.",
-    thumbnail: { type: "image", src: null, alt: "Buginator project preview" },
-    media: { type: "video", src: "/videos/projects/Buginator.mp4", alt: "Buginator project demo" },
+    thumbnail: { type: "image", src: "/images/projects/Buginator.jpg", alt: "Buginator GitHub issue severity classification preview" },
+    media: { type: "image", src: "/images/projects/Buginator.jpg", alt: "Buginator GitHub issue severity classification preview" },
+    demoUrl: "https://bugclassifier.streamlit.app/",
     metrics: [
       { label: "Accuracy", value: "93.74%" },
       { label: "F1-score", value: "0.94" },
@@ -359,15 +362,47 @@ export const projects: Project[] = [
     period: "February 2026 — July 2026",
     categories: ["Software Engineering", "Web Application"],
     overview:
-      "Schola is a web-based scholarship information system that brings scholarship opportunities into one platform. Users can browse and search scholarships, submit required application documents, and track application progress. Administrators can manage scholarship information and applications.",
-    media: { type: "video", src: null, alt: "Schola project media" },
+      "Schola is a full-stack web-based scholarship management system that brings scholarship discovery and application management into one platform. Students can browse and search scholarship opportunities, view requirements and benefits, submit applications and required documents, and track their application progress. Administrators can create and manage scholarship listings, review applicants and submitted documents, and update application statuses.",
+    thumbnail: { type: "image", src: "/images/projects/schola.jpg", alt: "Schola scholarship management system preview" },
+    media: { type: "image", src: "/images/projects/schola.jpg", alt: "Schola scholarship management system preview" },
     metrics: [],
     github: "https://github.com/maureenclsta/Schola---Software-Engineering.git",
-    whyMadeThis: null,
+    whyMadeThis:
+      "I developed Schola to make the scholarship application process more organized and accessible by bringing scholarship information, applications, document submission, and progress tracking into one platform.\n\nThis project also allowed me to explore how a full-stack web application can support different user roles and workflows. I worked with authentication, role-based access control, database relationships, file validation, CRUD operations, and server-rendered web pages while building a system that addresses a practical educational administration problem.",
     sdgs: [],
-    technologies: [],
-    strengths: ["Brings scholarship browsing, applications, and progress tracking into one system."],
-    limitations: null,
+    sdgInfo: {
+      title: "SDG 4 — Quality Education",
+      description:
+        "Schola supports SDG 4 by helping students discover and manage scholarship opportunities that can provide access to educational funding. By centralizing scholarship information and simplifying the application process, the platform aims to make educational opportunities easier to navigate.",
+    },
+    technologies: [
+      { name: "Programming Language", description: "Python" },
+      { name: "Backend Framework", description: "Django" },
+      { name: "Database", description: "SQLite" },
+      { name: "Frontend", description: "HTML, CSS, Vanilla JavaScript" },
+      { name: "Templating", description: "Django Template Language (DTL)" },
+      { name: "Image & File Handling", description: "Pillow" },
+      { name: "Design", description: "Figma" },
+      { name: "Development Tools", description: "Git, GitHub" },
+    ],
+    strengths: [
+      "Centralizes scholarship discovery, applications, document submission, and progress tracking.",
+      "Provides separate workflows for students and scholarship administrators.",
+      "Includes scholarship search and filtering by country and degree level.",
+      "Supports application document uploads with file type and size validation.",
+      "Prevents duplicate applications for the same scholarship.",
+      "Provides application status tracking with Pending, Accepted, and Rejected states.",
+      "Allows administrators to create, edit, delete, and manage their scholarship listings.",
+      "Provides notifications for important application events.",
+    ],
+    limitations: [
+      "Scholarship information depends on administrators to keep listings, requirements, and deadlines up to date.",
+      "The system does not automatically determine whether an applicant is eligible for a scholarship.",
+      "The current Saved Scholarships feature is not fully connected to persistent database logic.",
+      "The Resources Hub is currently scaffolded but does not yet have persistent resource data.",
+      "The platform is designed as a scholarship management system and does not guarantee scholarship acceptance.",
+      "SQLite is used as the default database, which is suitable for development and academic use but may need to be replaced with a more scalable database for larger deployments.",
+    ],
   },
   {
     slug: "snapdriver",
@@ -379,7 +414,7 @@ export const projects: Project[] = [
     overview:
       "SnapDrive AI is a real-time driver drowsiness monitoring system that uses webcam video, computer vision, and deep learning to analyze driver behavior. The system detects visual patterns such as yawning and talking and classifies the driver's current state into four categories: Normal, Yawning, Talking, and Yawning & Talking.\n\nWhen sustained drowsiness-related behavior is detected, the system can trigger an audio alarm and send an emergency notification through Telegram to designated contacts. It also provides a real-time alertness score and session history through a Streamlit-based monitoring dashboard.",
     thumbnail: { type: "image", src: "/images/projects/snapdriver.jpg", alt: "SnapDriver real-time driver drowsiness detection preview" },
-    media: { type: "video", src: "/videos/projects/snapdriver.mp4", alt: "SnapDriver real-time driver drowsiness detection demo" },
+    media: { type: "image", src: "/images/projects/snapdriver.jpg", alt: "SnapDriver real-time driver drowsiness detection preview" },
     metrics: [],
     github: "https://github.com/maureenclsta/SnapDrive.git",
     whyMadeThis:
