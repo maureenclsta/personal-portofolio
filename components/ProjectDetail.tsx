@@ -1,8 +1,37 @@
+import { Fragment, type ReactNode } from "react";
 import Link from "next/link";
 
 import { ProjectMedia } from "@/components/ProjectMedia";
 import { Reveal } from "@/components/Reveal";
 import type { Project } from "@/data/portfolio";
+
+/** Renders inline **bold** markers within a string as <strong> elements. */
+function renderInline(text: string): ReactNode {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-semibold text-[var(--text)]">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
+
+/** Splits a string on blank lines and renders each block as its own paragraph. */
+function Paragraphs({ text, className }: { text: string; className?: string }) {
+  const blocks = text.split("\n\n");
+  return (
+    <>
+      {blocks.map((block, index) => (
+        <p key={index} className={`${index === 0 ? "" : "mt-4 "}${className ?? ""}`}>
+          {renderInline(block)}
+        </p>
+      ))}
+    </>
+  );
+}
 
 function BackLink() {
   return (
@@ -83,36 +112,65 @@ export function ProjectDetail({ project }: { project: Project }) {
         <div className="space-y-8">
           <section>
             <h2 className="text-2xl font-bold text-[var(--text-strong)]">Overview</h2>
-            <p className="mt-3 max-w-3xl text-justify leading-relaxed text-[var(--muted)]">{project.overview}</p>
+            <div className="mt-3 max-w-3xl">
+              <Paragraphs text={project.overview} className="text-justify leading-relaxed text-[var(--muted)]" />
+            </div>
           </section>
 
           {project.process ? (
             <section>
               <h2 className="text-xl font-bold text-[var(--text-strong)]">How it works</h2>
-              <ol className="mt-4 flex flex-wrap items-center gap-2" aria-label={`${project.title} process`}>
-                {project.process.map((step, index) => (
-                  <li key={step} className="flex items-center gap-2">
-                    <span className="chip px-3 py-2 text-sm font-medium">{step}</span>
-                    {index < project.process!.length - 1 ? (
-                      <svg className="h-4 w-4 text-[var(--accent-bright)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M5 12h14" />
-                        <path d="m13 6 6 6-6 6" />
-                      </svg>
-                    ) : null}
-                  </li>
-                ))}
-              </ol>
+              {typeof project.process[0] === "string" ? (
+                <ol className="mt-4 flex flex-wrap items-center gap-2" aria-label={`${project.title} process`}>
+                  {(project.process as string[]).map((step, index) => (
+                    <li key={step} className="flex items-center gap-2">
+                      <span className="chip px-3 py-2 text-sm font-medium">{step}</span>
+                      {index < project.process!.length - 1 ? (
+                        <svg className="h-4 w-4 text-[var(--accent-bright)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M5 12h14" />
+                          <path d="m13 6 6 6-6 6" />
+                        </svg>
+                      ) : null}
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <ol className="mt-4 space-y-4" aria-label={`${project.title} process`}>
+                  {(project.process as { title: string; description: string }[]).map((step, index) => (
+                    <li key={step.title} className="flex gap-4">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[rgba(var(--accent-rgb),0.35)] bg-[rgba(var(--accent-rgb),0.12)] text-sm font-bold text-[var(--accent-bright)]">
+                        {index + 1}
+                      </span>
+                      <div>
+                        <h3 className="font-bold text-[var(--text-strong)]">{step.title}</h3>
+                        <p className="mt-1 text-justify leading-relaxed text-[var(--muted)]">{step.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              )}
             </section>
           ) : null}
 
           <section>
             <h2 className="text-xl font-bold text-[var(--text-strong)]">Why I made this</h2>
-            <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">{project.whyMadeThis ?? "Project background will be added soon."}</p>
+            {project.whyMadeThis ? (
+              <div className="mt-2">
+                <Paragraphs text={project.whyMadeThis} className="text-justify leading-relaxed text-[var(--muted)]" />
+              </div>
+            ) : (
+              <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">Project background will be added soon.</p>
+            )}
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-[var(--text-strong)]">Sustainable Development Goals</h2>
-            {project.sdgs.length > 0 ? (
+            {project.sdgInfo ? (
+              <div className="mt-3">
+                <p className="font-semibold text-[var(--text)]">{project.sdgInfo.title}</p>
+                <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">{project.sdgInfo.description}</p>
+              </div>
+            ) : project.sdgs.length > 0 ? (
               <ul className="mt-3 flex flex-wrap gap-2">
                 {project.sdgs.map((sdg) => (
                   <li key={sdg} className="chip px-3 py-1.5 text-sm">{sdg}</li>
@@ -131,7 +189,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                   <svg className="mt-1 h-4 w-4 shrink-0 text-[var(--accent-bright)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <path d="m5 13 4 4L19 7" />
                   </svg>
-                  {strength}
+                  <span>{renderInline(strength)}</span>
                 </li>
               ))}
             </ul>
@@ -139,7 +197,18 @@ export function ProjectDetail({ project }: { project: Project }) {
 
           <section>
             <h2 className="text-xl font-bold text-[var(--text-strong)]">Limitations</h2>
-            <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">{project.limitations ?? "Limitations will be added when confirmed."}</p>
+            {Array.isArray(project.limitations) ? (
+              <ul className="mt-3 space-y-2.5">
+                {project.limitations.map((limitation) => (
+                  <li key={limitation} className="flex gap-3 text-justify leading-relaxed text-[var(--muted)]">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent-bright)]" aria-hidden="true" />
+                    <span>{limitation}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="mt-2 text-justify leading-relaxed text-[var(--muted)]">{project.limitations ?? "Limitations will be added when confirmed."}</p>
+            )}
           </section>
         </div>
 
@@ -165,14 +234,39 @@ export function ProjectDetail({ project }: { project: Project }) {
 
           <section className="glass-card p-5">
             <h2 className="text-lg font-bold text-[var(--text-strong)]">Tools &amp; technologies</h2>
-            {project.technologies.length > 0 ? (
+            {project.technologies.length === 0 ? (
+              <p className="mt-2 leading-relaxed text-[var(--muted)]">Technology details will be added once confirmed.</p>
+            ) : typeof project.technologies[0] === "string" ? (
               <div className="mt-3 flex flex-wrap gap-2">
-                {project.technologies.map((technology) => (
+                {(project.technologies as string[]).map((technology) => (
                   <span key={technology} className="chip px-3 py-1.5 text-sm font-medium">{technology}</span>
                 ))}
               </div>
+            ) : "group" in project.technologies[0] ? (
+              <div className="mt-3 space-y-4">
+                {(project.technologies as { group: string; items: { name: string; description?: string }[] }[]).map((section) => (
+                  <div key={section.group}>
+                    <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-[var(--accent-bright)]">{section.group}</h3>
+                    <ul className="mt-2 space-y-2">
+                      {section.items.map((item) => (
+                        <li key={item.name} className="text-sm leading-relaxed">
+                          <span className="font-semibold text-[var(--text)]">{item.name}</span>
+                          {item.description ? <span className="text-[var(--muted)]"> — {item.description}</span> : null}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             ) : (
-              <p className="mt-2 leading-relaxed text-[var(--muted)]">Technology details will be added once confirmed.</p>
+              <ul className="mt-3 space-y-3">
+                {(project.technologies as { name: string; description?: string }[]).map((technology) => (
+                  <li key={technology.name} className="text-sm leading-relaxed">
+                    <span className="font-semibold text-[var(--text)]">{technology.name}</span>
+                    {technology.description ? <span className="text-[var(--muted)]"> — {technology.description}</span> : null}
+                  </li>
+                ))}
+              </ul>
             )}
           </section>
         </aside>
