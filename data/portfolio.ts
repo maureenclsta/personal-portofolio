@@ -858,9 +858,7 @@ export const socialItems = [
 // replace each `src: null` with its path (e.g. "/images/profile/maureen-1.jpg").
 // While `src` is null the hero shows a styled placeholder — nothing breaks.
 export const profilePhotos: { src: string | null; alt: string }[] = [
-  { src: null, alt: "Maureen Calista Surjo" }, // -> /images/profile/maureen-1.jpg
-  { src: null, alt: "Maureen Calista Surjo" }, // -> /images/profile/maureen-2.jpg
-  { src: null, alt: "Maureen Calista Surjo" }, // -> /images/profile/maureen-3.jpg
+  { src: "/images/profile/Maureen.jpg", alt: "Maureen Calista Surjo" },
 ];
 export const contactPhotos: { src: string; alt: string }[] = [];
 
