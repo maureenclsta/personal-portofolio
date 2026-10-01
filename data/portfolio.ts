@@ -767,6 +767,7 @@ export const skillGroups: SkillGroup[] = [
     description: "Languages I use to build interfaces, applications, and project logic.",
     items: [
       { name: "Python", description: "Used for machine learning, deep learning, NLP, computer vision, and data processing." },
+      { name: "C++", description: "Used for programming fundamentals and problem solving." },
       { name: "JavaScript", description: "Used to build interactive web interfaces." },
       { name: "TypeScript", description: "Used in web projects with typed JavaScript." },
       { name: "PHP", description: "Used for web application development." },
@@ -779,7 +780,6 @@ export const skillGroups: SkillGroup[] = [
     description: "Libraries I use for data work, machine learning, and visual analysis.",
     items: [
       { name: "TensorFlow", description: "Used for deep learning model work." },
-      { name: "Keras", description: "Used to build deep learning models." },
       { name: "OpenCV", description: "Used for computer vision and image or video processing." },
       { name: "scikit-learn", description: "Used for machine learning models and evaluation." },
       { name: "Pandas", description: "Used to work with structured data." },

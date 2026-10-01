@@ -73,7 +73,7 @@ export function Hero() {
               <Link href="/contact" className="btn btn-ghost px-6 py-3.5 text-[0.95rem]">
                 Get in touch
               </Link>
-              <a href="/Maureen_Calista_CV.pdf" download="Maureen_Calista_CV.pdf" className="btn btn-ghost px-6 py-3.5 text-[0.95rem]">
+              <a href="/Maureen-CV.pdf" download="Maureen-CV.pdf" className="btn btn-ghost px-6 py-3.5 text-[0.95rem]">
                 View CV
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M12 3v12" />
