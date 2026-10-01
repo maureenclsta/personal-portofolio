@@ -115,7 +115,7 @@ export function Contact() {
               <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-[var(--border)] pt-5">
                 <div>
                   <dt className="text-xs font-medium text-[var(--muted-soft)]">Based in</dt>
-                  <dd className="mt-1 font-semibold text-[var(--text)]">Semarang, Indonesia</dd>
+                  <dd className="mt-1 font-semibold text-[var(--text)]">Jakarta, Indonesia</dd>
                 </div>
                 <div>
                   <dt className="text-xs font-medium text-[var(--muted-soft)]">Response time</dt>

@@ -840,7 +840,7 @@ export const contactItems = [
   {
     label: "Email",
     links: [
-      { value: "maureencalista437@gmail.com", href: "mailto:maureencalista437@gmail.com" },
+      { value: "maureenclst33@gmail.com", href: "mailto:maureenclst33@gmail.com" },
       { value: "maureen.surjo@binus.ac.id", href: "mailto:maureen.surjo@binus.ac.id" },
     ],
   },
@@ -851,7 +851,7 @@ export const contactItems = [
 export const socialItems = [
   { label: "Instagram", value: "maureenclsta", href: "https://www.instagram.com/maureenclsta" },
   { label: "LINE", value: "maureenclsta", href: "https://line.me/ti/p/~maureenclsta" },
-  { label: "TikTok", value: "intercalistart", href: "https://www.tiktok.com/@intercalistart" },
+  { label: "TikTok", value: "intercalistar", href: "https://www.tiktok.com/@intercalistar" },
 ];
 
 // Home page hero photos. Drop the files in `public/images/profile/`, then
