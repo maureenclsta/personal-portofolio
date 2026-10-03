@@ -852,6 +852,7 @@ export const socialItems = [
   { label: "Instagram", value: "maureenclsta", href: "https://www.instagram.com/maureenclsta" },
   { label: "LINE", value: "maureenclsta", href: "https://line.me/ti/p/~maureenclsta" },
   { label: "TikTok", value: "intercalistar", href: "https://www.tiktok.com/@intercalistar" },
+  { label: "WhatsApp", value: "089628746213", href: "https://wa.me/6289628746213" },
 ];
 
 // Home page hero photos. Drop the files in `public/images/profile/`, then

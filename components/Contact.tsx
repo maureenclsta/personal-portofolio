@@ -51,6 +51,13 @@ function ContactIcon({ label }: { label: string }) {
           <path d="M14 5c.7 2.5 2.2 3.8 5 4" />
         </svg>
       );
+    case "WhatsApp":
+      return (
+        <svg {...stroke}>
+          <path d="M4 20.5 5.4 16a8 8 0 1 1 3.1 3l-4.5 1.5Z" />
+          <path d="M9 9c0 3 2 5 5 5m-1.9-2.3.9-.8c.2-.2.5-.2.7-.1l1.3.6c.2.1.4.3.4.6 0 1-.9 1.6-1.8 1.4-1.9-.4-4-2.5-4.4-4.4-.2-.9.4-1.8 1.4-1.8.3 0 .5.2.6.4l.6 1.3c.1.2.1.5-.1.7l-.8.9" />
+        </svg>
+      );
     default:
       return (
         <svg {...stroke}>
