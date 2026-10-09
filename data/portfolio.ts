@@ -632,6 +632,21 @@ export const experienceGroups: ExperienceGroup[] = [
     title: "OUTSIDE BINUS",
     items: [
       {
+        slug: "host-live-fashion",
+        company: "Fashion",
+        role: "Host Live",
+        period: "2025",
+        description:
+          "Worked as a live stream host for fashion products, presenting product details, engaging with viewers, and promoting products during live shopping sessions.",
+        tags: [],
+        responsibilities: [
+          "Presented fashion products during live shopping sessions, explaining product features, styles, and details to viewers.",
+          "Promoted products and encouraged purchases through engaging communication and product recommendations.",
+          "Interacted with viewers in real time by answering questions and providing information about available products.",
+        ],
+        documentation: [],
+      },
+      {
         slug: "emina-brand-promoter",
         company: "PT Paragon Innovation and Technology",
         role: "Freelance Emina Brand Promoter",
@@ -687,8 +702,8 @@ export const experienceGroups: ExperienceGroup[] = [
       },
       {
         slug: "millennium-luxuries-usher",
-        company: "Millennium Luxuries · BrideStory",
-        role: "Freelance Event Promoter / Usher",
+        company: "Bridestory",
+        role: "Freelance Millenium Luxuries Brand Promotor",
         period: "2026",
         description:
           "At BrideStory events, I welcomed visitors and introduced Millennium Luxuries jewelry. I answered questions and assisted potential customers, helping keep their visit comfortable while supporting the brand’s event activities.",

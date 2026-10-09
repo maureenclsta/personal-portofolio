@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import { CopyEmailButton } from "@/components/CopyEmailButton";
 import { Reveal } from "@/components/Reveal";
 import { contactItems, contactPhotos, socialItems } from "@/data/portfolio";
 
@@ -91,18 +90,33 @@ export function Contact() {
                 a project idea, or just want to say hi — my inbox is always open. I&apos;ll get back to you as soon as I can.
               </p>
 
-              {primaryEmail ? (
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                  <a href={primaryEmail.href} className="btn btn-primary px-6 py-3.5 text-[0.95rem]">
-                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <rect x="3" y="5" width="18" height="14" rx="2.5" />
-                      <path d="m4 7 8 6 8-6" />
-                    </svg>
-                    Email me
-                  </a>
-                  <CopyEmailButton email={primaryEmail.value} />
-                </div>
-              ) : null}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="https://github.com/maureenclsta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary px-6 py-3.5 text-[0.95rem]"
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.1c-3.14.68-3.8-1.33-3.8-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.03-.7.08-.69.08-.69 1.14.08 1.73 1.17 1.73 1.17 1.01 1.72 2.65 1.22 3.3.93.1-.73.4-1.22.72-1.5-2.51-.29-5.15-1.26-5.15-5.6 0-1.24.44-2.25 1.16-3.04-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.1 1.16a10.8 10.8 0 0 1 5.64 0c2.15-1.46 3.1-1.16 3.1-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.04 0 4.35-2.64 5.3-5.16 5.59.41.36.77 1.04.77 2.1v3.08c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75Z" />
+                  </svg>
+                  GitHub
+                </a>
+                <a
+                  href="/Maureen%20Calista%20Surjo_CV.pdf"
+                  download="Maureen Calista Surjo_CV.pdf"
+                  className="btn btn-primary px-6 py-3.5 text-[0.95rem]"
+                >
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M12 3v12" />
+                    <path d="m7 11 5 5 5-5" />
+                    <path d="M5 21h14" />
+                  </svg>
+                  CV
+                </a>
+              </div>
+
+
             </div>
           </Reveal>
 
@@ -145,7 +159,7 @@ export function Contact() {
       {/* Channels */}
       <div className="border-t border-[var(--border)] px-5 py-8 sm:px-8 sm:py-10 lg:px-12">
         <Reveal>
-          <h2 className="text-lg font-bold text-[var(--text-strong)]">Reach me directly</h2>
+          <h2 className="text-lg font-bold text-[var(--text-strong)]">Let&apos;s Connect</h2>
         </Reveal>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {/* Email as an info card with each address */}
@@ -195,7 +209,7 @@ export function Contact() {
 
         {/* Socials */}
         <Reveal>
-          <h2 className="mt-9 text-lg font-bold text-[var(--text-strong)]">Elsewhere</h2>
+          <h2 className="mt-9 text-lg font-bold text-[var(--text-strong)]">My Social&apos;s</h2>
         </Reveal>
         <div className="mt-4 flex flex-wrap gap-3">
           {socialItems.map((item, index) => {

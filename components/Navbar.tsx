@@ -162,8 +162,8 @@ export function Navbar() {
         <div className="space-y-4">
           <AvailabilityPill />
           <a
-            href="/Maureen-CV.pdf"
-            download="Maureen-CV.pdf"
+            href="/Maureen%20Calista%20Surjo_CV.pdf"
+            download="Maureen Calista Surjo_CV.pdf"
             className="btn btn-primary w-full px-4 py-3 text-sm"
           >
             Download CV
@@ -247,8 +247,8 @@ export function Navbar() {
             })}
           </div>
           <a
-            href="/Maureen-CV.pdf"
-            download="Maureen-CV.pdf"
+            href="/Maureen%20Calista%20Surjo_CV.pdf"
+            download="Maureen Calista Surjo_CV.pdf"
             onClick={closeMenu}
             className="btn btn-primary mt-2 w-full px-4 py-3 text-sm"
           >

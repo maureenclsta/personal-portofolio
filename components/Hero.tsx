@@ -4,12 +4,11 @@ import { PhotoSlideshow } from "@/components/PhotoSlideshow";
 import { Reveal } from "@/components/Reveal";
 import { profilePhotos } from "@/data/portfolio";
 
-const focusTags = ["Intelligent Systems", "Web Development", "UI/UX Design"];
-
 const heroStats = [
   { value: "5th", label: "Semester" },
   { value: "3.70", label: "GPA / 4.00" },
   { value: "5+", label: "Projects built" },
+  { value: "3+ Years", label: "Freelance Experience" },
 ];
 
 export function Hero() {
@@ -51,19 +50,9 @@ export function Hero() {
             </p>
           </Reveal>
 
-          <Reveal delay={220}>
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {focusTags.map((tag) => (
-                <span key={tag} className="chip px-3.5 py-1.5 text-sm font-semibold">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </Reveal>
-
           <Reveal delay={280}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/projects" className="btn btn-primary px-6 py-3.5 text-[0.95rem]">
+              <Link href="/projects" className="btn btn-ghost px-6 py-3.5 text-[0.95rem]">
                 View my work
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14" />
@@ -73,7 +62,7 @@ export function Hero() {
               <Link href="/contact" className="btn btn-ghost px-6 py-3.5 text-[0.95rem]">
                 Get in touch
               </Link>
-              <a href="/Maureen-CV.pdf" download="Maureen-CV.pdf" className="btn btn-ghost px-6 py-3.5 text-[0.95rem]">
+              <a href="/Maureen%20Calista%20Surjo_CV.pdf" download="Maureen Calista Surjo_CV.pdf" className="btn btn-ghost px-6 py-3.5 text-[0.95rem]">
                 View CV
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M12 3v12" />
@@ -85,7 +74,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={340}>
-            <dl className="mt-10 grid max-w-md grid-cols-3 gap-4 border-t border-[var(--border)] pt-6">
+            <dl className="mt-10 grid max-w-xl grid-cols-2 gap-4 border-t border-[var(--border)] pt-6 sm:grid-cols-4">
               {heroStats.map((stat) => (
                 <div key={stat.label}>
                   <dt className="sr-only">{stat.label}</dt>
