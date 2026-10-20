@@ -26,7 +26,7 @@ export function Skills() {
               className="glass-card card-hover-lift group flex h-full flex-col p-5 sm:p-6"
             >
               <div className="flex items-start gap-3">
-                <span aria-hidden="true" className="mt-1 h-6 w-1.5 shrink-0 rounded-full bg-[var(--gradient-accent,linear-gradient(180deg,#a06bff,#7c4dff))]" />
+                <span aria-hidden="true" className="mt-1 h-6 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
                 <div>
                   <h2 id={groupId(group.title)} className="text-lg font-bold text-[var(--text-strong)]">
                     {group.title}
@@ -40,11 +40,11 @@ export function Skills() {
                   <span
                     key={item.name}
                     title={item.description}
-                    className="chip inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold transition-colors duration-200 hover:border-[rgba(var(--accent-rgb),0.5)] hover:bg-[rgba(var(--accent-rgb),0.14)] hover:text-[var(--accent-bright)]"
+                    className="chip inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold transition-colors duration-200 hover:border-[var(--accent)] hover:bg-[var(--accent-soft)] hover:text-[var(--accent-deep)]"
                   >
                     {item.name}
                     {item.status ? (
-                      <span className="rounded-full bg-[rgba(var(--accent-rgb),0.2)] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[var(--accent-bright)]">
+                      <span className="rounded-full bg-[var(--accent-soft)] px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[var(--accent-deep)]">
                         {item.status}
                       </span>
                     ) : null}

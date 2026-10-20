@@ -37,7 +37,7 @@ export function PhotoSlideshow({ photos }: { photos: Photo[] }) {
   }
 
   return (
-    <div className="relative h-44 w-44 overflow-hidden rounded-[1.4rem] border border-[rgba(var(--accent-rgb),0.3)] bg-white/5 shadow-[var(--shadow-md)]">
+    <div className="relative h-44 w-44 overflow-hidden rounded-[1.4rem] border border-[var(--border)] bg-[var(--bg-muted)] shadow-[var(--shadow-sm)]">
       {readyPhotos.map((photo, index) => (
         <Image
           key={photo.src}

@@ -21,18 +21,18 @@ export function ProjectMedia({
       <div
         role="img"
         aria-label={`${projectTitle} media preview will be added later`}
-        className={`${aspectRatio} relative flex w-full flex-col items-center justify-center overflow-hidden bg-[radial-gradient(120%_120%_at_50%_0%,rgba(124,77,255,0.22),transparent_60%)] px-4 text-center`}
+        className={`${aspectRatio} relative flex w-full flex-col items-center justify-center overflow-hidden bg-[var(--bg-muted)] px-4 text-center`}
       >
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-[0.5]"
+          className="pointer-events-none absolute inset-0 opacity-[0.6]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+              "linear-gradient(rgba(16,24,40,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(16,24,40,0.04) 1px, transparent 1px)",
             backgroundSize: "22px 22px",
           }}
         />
-        <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-[rgba(var(--accent-rgb),0.35)] bg-[rgba(var(--accent-rgb),0.14)] text-[var(--accent-bright)]">
+        <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--surface-1)] text-[var(--accent)]">
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <rect x="3" y="4" width="18" height="14" rx="2.5" />
             <circle cx="8.5" cy="9" r="1.5" />
@@ -46,7 +46,7 @@ export function ProjectMedia({
   }
 
   return (
-    <div className={`${aspectRatio} relative w-full overflow-hidden bg-black/20`}>
+    <div className={`${aspectRatio} relative w-full overflow-hidden bg-[var(--bg-muted)]`}>
       {media.type === "image" ? (
         <Image
           src={media.src}

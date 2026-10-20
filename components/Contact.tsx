@@ -75,9 +75,6 @@ export function Contact() {
     <section id="contact" className="panel scroll-mt-24 overflow-hidden">
       {/* Hero band */}
       <div className="relative px-5 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14">
-        <div aria-hidden="true" className="pointer-events-none absolute -left-16 top-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(124,77,255,0.4),transparent_70%)] blur-3xl" />
-        <div aria-hidden="true" className="pointer-events-none absolute -right-10 bottom-0 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(177,140,255,0.28),transparent_70%)] blur-3xl" />
-
         <div className="relative grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <Reveal>
             <div>
@@ -143,8 +140,8 @@ export function Contact() {
                   <dd className="mt-1 font-semibold text-[var(--text)]">Within a day</dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-medium text-[var(--muted-soft)]">Focus</dt>
-                  <dd className="mt-1 font-semibold text-[var(--text)]">AI · Web Dev</dd>
+                  <dt className="text-xs font-medium text-[var(--muted-soft)]">Major</dt>
+                  <dd className="mt-1 font-semibold text-[var(--text)]">Computer Science - Intelligent System</dd>
                 </div>
                 <div>
                   <dt className="text-xs font-medium text-[var(--muted-soft)]">Languages</dt>
@@ -167,7 +164,7 @@ export function Contact() {
             <Reveal className="h-full">
               <div className="glass-card flex h-full flex-col gap-3 p-5">
                 <div className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(var(--accent-rgb),0.35)] bg-[rgba(var(--accent-rgb),0.14)] text-[var(--accent-bright)]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--accent-soft)] text-[var(--accent)]">
                     <ContactIcon label="Email" />
                   </span>
                   <span className="text-sm font-bold text-[var(--text-strong)]">Email</span>
@@ -191,7 +188,7 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="glass-card card-hover-lift group flex h-full items-center gap-3 p-5"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[rgba(var(--accent-rgb),0.35)] bg-[rgba(var(--accent-rgb),0.14)] text-[var(--accent-bright)] transition-transform duration-300 group-hover:scale-105">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--accent-soft)] text-[var(--accent)] transition-transform duration-300 group-hover:scale-105">
                   <ContactIcon label={item.label} />
                 </span>
                 <span className="min-w-0 flex-1">
@@ -215,7 +212,7 @@ export function Contact() {
           {socialItems.map((item, index) => {
             const inner = (
               <>
-                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-white/5 text-[var(--text)] transition-colors duration-300 group-hover:border-[var(--accent)] group-hover:text-[var(--accent-bright)]">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--surface-subtle)] text-[var(--muted)] transition-colors duration-300 group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
                   <ContactIcon label={item.label} />
                 </span>
                 <span className="pr-1">

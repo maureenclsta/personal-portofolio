@@ -3,76 +3,80 @@
 /*
   =====================================================================
   DESIGN SYSTEM — Maureen Calista Surjo Portfolio
-  Purple-forward, modern, Gen Z professional.
+  Clean, editorial, light. White canvas, charcoal ink, restrained blue.
   ---------------------------------------------------------------------
-  Palette is built around a single violet brand hue used consistently
-  as the primary accent, layered over deep aubergine backgrounds.
+  Minimal and professional: generous whitespace, hairline borders,
+  restrained shadows, one calm accent used sparingly.
   =====================================================================
 */
 
 :root {
-  /* --- Base surfaces (deep purple) --- */
-  --bg-dark: #150e2e;
-  --bg-deep: #100a24;
-  --bg-panel: #221643;
-  --bg-elevated: #2a1c50;
+  /* --- Base surfaces (light) --- */
+  --bg: #ffffff;
+  --bg-deep: #f6f7f9;       /* page canvas, a touch off-white */
+  --bg-dark: #ffffff;       /* legacy alias (was dark) */
+  --bg-panel: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-muted: #f3f4f6;      /* subtle filled surface (chips, wells) */
 
-  /* Glass / card surfaces (translucent) */
-  --surface-1: rgba(255, 255, 255, 0.045);
-  --surface-2: rgba(255, 255, 255, 0.07);
-  --surface-3: rgba(255, 255, 255, 0.11);
+  /* Subtle surface tints */
+  --surface-1: #ffffff;
+  --surface-2: #f6f7f9;
+  --surface-3: #eef0f3;
+  --surface-subtle: #f4f5f7;
   --bg-card: var(--surface-1);
 
-  /* --- Text --- */
-  --text: #f4f0fb;
-  --text-strong: #ffffff;
-  --muted: rgba(226, 216, 246, 0.72);
-  --muted-soft: rgba(226, 216, 246, 0.55);
+  /* --- Text (charcoal / grays) --- */
+  --text: #1a1d23;          /* primary ink */
+  --text-strong: #0d0f12;   /* headings */
+  --muted: #565b64;         /* secondary text */
+  --muted-soft: #8a909a;    /* tertiary / meta */
 
-  /* --- Brand accent: violet (PRIMARY) --- */
-  --accent: #b18cff;
-  --accent-strong: #a06bff;
-  --accent-bright: #c4a6ff;
-  --accent-deep: #7c4dff;
-  --accent-contrast: #16092e; /* text on top of solid accent */
-  --accent-rgb: 177, 140, 255;
+  /* --- Brand accent: restrained blue --- */
+  --accent: #2f6df0;
+  --accent-strong: #2560d8;
+  --accent-bright: #2f6df0;
+  --accent-deep: #1e4fc0;
+  --accent-soft: #eaf1fe;   /* light accent wash */
+  --accent-contrast: #ffffff; /* text on top of solid accent */
+  --accent-rgb: 47, 109, 240;
 
-  /* Warm secondary spark (used very sparingly for highlight glow) */
-  --spark: #f0c987;
+  /* Secondary spark (unused decoratively; kept for compatibility) */
+  --spark: #c99a3a;
 
-  /* --- Borders --- */
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --border-accent: rgba(var(--accent-rgb), 0.45);
+  /* --- Borders (hairline grays) --- */
+  --border: #e7e9ee;
+  --border-strong: #d6d9e0;
+  --border-accent: rgba(var(--accent-rgb), 0.4);
 
-  /* --- Shadows --- */
-  --shadow-sm: 0 4px 14px rgba(10, 5, 24, 0.35);
-  --shadow-md: 0 16px 34px rgba(10, 5, 24, 0.4);
-  --shadow-lg: 0 28px 60px rgba(10, 5, 24, 0.5);
-  --shadow-accent: 0 16px 40px rgba(var(--accent-rgb), 0.32);
-  --shadow: rgba(16, 8, 26, 0.35);
+  /* --- Shadows (soft, restrained) --- */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 18px 44px rgba(16, 24, 40, 0.08);
+  --shadow-accent: 0 10px 24px rgba(var(--accent-rgb), 0.2);
+  --shadow: rgba(16, 24, 40, 0.08);
 
-  /* --- Gradients --- */
-  --gradient-accent: linear-gradient(135deg, #a06bff 0%, #7c4dff 55%, #b18cff 100%);
-  --gradient-surface: linear-gradient(180deg, rgba(var(--accent-rgb), 0.16), rgba(var(--accent-rgb), 0.07));
+  /* --- Gradients (used very sparingly) --- */
+  --gradient-accent: linear-gradient(135deg, #3b78f5 0%, #2560d8 100%);
+  --gradient-surface: linear-gradient(180deg, #ffffff, #ffffff);
 
   /* --- Radii --- */
-  --radius-xs: 10px;
-  --radius-sm: 14px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
   --radius-pill: 999px;
 
   /* --- Motion --- */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
-  --dur-fast: 180ms;
-  --dur: 260ms;
-  --dur-slow: 520ms;
+  --dur-fast: 160ms;
+  --dur: 240ms;
+  --dur-slow: 480ms;
 }
 
 @theme inline {
-  --color-background: var(--bg-dark);
+  --color-background: var(--bg);
   --color-foreground: var(--text);
   --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
@@ -91,12 +95,6 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   background-color: var(--bg-deep);
-  /* Layered ambient purple glow — subtle, not flashy */
-  background-image:
-    radial-gradient(120% 90% at 12% -5%, rgba(124, 77, 255, 0.22), transparent 55%),
-    radial-gradient(90% 80% at 100% 0%, rgba(160, 107, 255, 0.14), transparent 50%),
-    radial-gradient(100% 100% at 50% 120%, rgba(124, 77, 255, 0.12), transparent 60%);
-  background-attachment: fixed;
 }
 
 * {
@@ -109,34 +107,34 @@ img {
 }
 
 ::selection {
-  background: rgba(var(--accent-rgb), 0.35);
-  color: var(--text-strong);
+  background: var(--accent-soft);
+  color: var(--accent-deep);
 }
 
 /* Consistent, visible focus for keyboard users */
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-  outline: 2px solid var(--accent-bright);
-  outline-offset: 3px;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
   border-radius: 6px;
 }
 
-/* Custom scrollbar to match the theme */
+/* Custom scrollbar — quiet, neutral */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(var(--accent-rgb), 0.4) transparent;
+  scrollbar-color: #cdd2da transparent;
 }
 *::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
 }
 *::-webkit-scrollbar-thumb {
-  background: rgba(var(--accent-rgb), 0.35);
+  background: #cdd2da;
   border-radius: 999px;
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   background-clip: content-box;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background: rgba(var(--accent-rgb), 0.55);
+  background: #b4bac4;
   background-clip: content-box;
 }
 
@@ -146,67 +144,64 @@ img {
   =====================================================================
 */
 
-/* Section container — the main "panel" every page sits in */
+/* Section container — the main surface every page section sits on */
 .panel {
   position: relative;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  background:
-    linear-gradient(180deg, rgba(42, 28, 80, 0.55), rgba(28, 18, 56, 0.6));
-  backdrop-filter: blur(14px);
-  box-shadow: var(--shadow-md);
+  background: var(--bg-panel);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
 /* Legacy alias kept so existing markup keeps working */
 .section-shell {
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Eyebrow label above headings */
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
+  gap: 0.6rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent-bright);
+  color: var(--accent);
 }
 .eyebrow::before {
   content: "";
-  width: 1.6rem;
+  width: 1.5rem;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  background: var(--accent);
 }
 
-/* Gradient headline text */
+/* "Gradient" headline text — in the light theme this is a solid accent
+   tint so it stays legible and restrained (no rainbow). */
 .text-gradient {
-  background: linear-gradient(120deg, #ffffff 0%, #dcc9ff 45%, #b18cff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--accent);
 }
 
-/* Glass card used across Skills / Experience / Contact / Projects */
+/* Card used across Skills / Experience / Contact / Projects */
 .glass-card {
   position: relative;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  background: var(--gradient-surface);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-sm);
   transition: transform var(--dur) var(--ease-out),
     border-color var(--dur) var(--ease-out),
     box-shadow var(--dur) var(--ease-out),
     background-color var(--dur) var(--ease-out);
 }
 .glass-card:hover {
-  border-color: var(--border-accent);
-  box-shadow: var(--shadow-md), 0 0 0 1px rgba(var(--accent-rgb), 0.18);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
 }
 .card-hover-lift:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* Buttons */
@@ -216,7 +211,7 @@ img {
   justify-content: center;
   gap: 0.5rem;
   border-radius: var(--radius-pill);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   transition: transform var(--dur-fast) var(--ease-out),
     box-shadow var(--dur) var(--ease-out),
@@ -226,29 +221,32 @@ img {
   will-change: transform;
 }
 .btn:active {
-  transform: translateY(1px) scale(0.99);
+  transform: translateY(1px) scale(0.995);
 }
 
 .btn-primary {
-  background: var(--gradient-accent);
-  color: var(--text-strong);
-  box-shadow: var(--shadow-accent);
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border: 1px solid var(--accent);
+  box-shadow: var(--shadow-sm);
 }
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 44px rgba(var(--accent-rgb), 0.42);
+  transform: translateY(-1px);
+  background: var(--accent-strong);
+  border-color: var(--accent-strong);
+  box-shadow: var(--shadow-accent);
 }
 
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--surface-1);
   color: var(--text);
   border: 1px solid var(--border-strong);
 }
 .btn-ghost:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   border-color: var(--accent);
-  color: var(--accent-bright);
-  background: rgba(var(--accent-rgb), 0.1);
+  color: var(--accent);
+  background: var(--accent-soft);
 }
 
 /* Chips / tags */
@@ -257,19 +255,19 @@ img {
   align-items: center;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text);
+  background: var(--bg-muted);
+  color: var(--muted);
   transition: border-color var(--dur) var(--ease-out),
     background-color var(--dur) var(--ease-out),
     color var(--dur) var(--ease-out);
 }
 .chip-accent {
-  border-color: rgba(var(--accent-rgb), 0.4);
-  background: rgba(var(--accent-rgb), 0.12);
-  color: var(--accent-bright);
+  border-color: var(--border-accent);
+  background: var(--accent-soft);
+  color: var(--accent-deep);
 }
 .group:hover .chip {
-  border-color: rgba(var(--accent-rgb), 0.35);
+  border-color: var(--border-strong);
 }
 
 /* Underline-on-hover link */
@@ -285,7 +283,7 @@ img {
   width: 100%;
   transform: scaleX(0);
   transform-origin: left;
-  background: linear-gradient(90deg, var(--accent-bright), var(--accent-deep));
+  background: var(--accent);
   transition: transform var(--dur) var(--ease-out);
 }
 .link-underline:hover::after {
@@ -299,33 +297,24 @@ img {
 
 /*
   =====================================================================
-  CANDIDATE CARD (Hero) — refreshed to purple
+  CANDIDATE CARD (Hero portrait frame)
   =====================================================================
 */
 .candidate-card {
   position: relative;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-strong);
-  background:
-    radial-gradient(120% 80% at 50% -10%, rgba(var(--accent-rgb), 0.28), transparent 60%),
-    linear-gradient(180deg, rgba(124, 77, 255, 0.22), rgba(34, 22, 67, 0.5));
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-1);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
-}
-.candidate-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(60% 40% at 50% 0%, rgba(255, 255, 255, 0.1), transparent 60%);
-  pointer-events: none;
 }
 
 .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.4rem 0.5rem;
-  font-size: 0.72rem;
+  padding: 1.1rem 1.4rem 0.4rem;
+  font-size: 0.7rem;
   letter-spacing: 0.14em;
 }
 
@@ -334,7 +323,7 @@ img {
 }
 
 .avatar-wrap {
-  padding-top: 1.75rem;
+  padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -347,9 +336,9 @@ img {
   justify-content: center;
   width: 160px;
   height: 160px;
-  border-radius: 1.4rem;
-  background: rgba(var(--accent-rgb), 0.12);
-  border: 1px solid rgba(var(--accent-rgb), 0.3);
+  border-radius: 1.2rem;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
 }
 
 /*
@@ -360,7 +349,7 @@ img {
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -373,7 +362,7 @@ img {
 }
 @keyframes float-soft {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 }
 @keyframes glow-pulse {
   0%, 100% { opacity: 0.55; }
@@ -387,7 +376,7 @@ img {
 /* Scroll reveal: elements start hidden, .is-visible triggers the reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(18px);
   transition: opacity var(--dur-slow) var(--ease-out),
     transform var(--dur-slow) var(--ease-out);
   transition-delay: var(--reveal-delay, 0ms);
@@ -422,5 +411,8 @@ img {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+  .animate-float {
+    animation: none;
   }
 }

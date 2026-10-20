@@ -27,9 +27,8 @@ export function Projects() {
               aria-label={`View ${project.title} project`}
               className="group glass-card card-hover-lift flex h-full flex-col overflow-hidden focus-visible:outline-none"
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden border-b border-[var(--border)]">
                 <ProjectMedia media={project.thumbnail ?? project.media} projectTitle={project.title} compact />
-                <span className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(16,9,36,0.55))]" aria-hidden="true" />
               </div>
 
               <div className="flex flex-1 flex-col p-5 sm:p-6">
@@ -37,7 +36,7 @@ export function Projects() {
                   <h2 className="text-xl font-black text-[var(--text-strong)] sm:text-2xl">{project.title}</h2>
                   <span
                     aria-hidden="true"
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-white/5 text-[var(--accent-bright)] transition-all duration-300 group-hover:border-[var(--accent)] group-hover:bg-[rgba(var(--accent-rgb),0.16)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-subtle)] text-[var(--accent)] transition-all duration-300 group-hover:border-[var(--accent)] group-hover:bg-[var(--accent-soft)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   >
                     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M7 17 17 7" />

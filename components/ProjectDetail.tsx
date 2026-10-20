@@ -58,7 +58,6 @@ export function ProjectDetail({ project }: { project: Project }) {
     <article className="panel overflow-hidden">
       {/* Header */}
       <header className="relative px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
-        <div aria-hidden="true" className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(124,77,255,0.35),transparent_70%)] blur-2xl" />
         <Reveal>
           <BackLink />
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-[var(--muted-soft)]">Project</p>
@@ -161,7 +160,7 @@ export function ProjectDetail({ project }: { project: Project }) {
                 <ol className="mt-4 space-y-4" aria-label={`${project.title} process`}>
                   {(project.process as { title: string; description: string }[]).map((step, index) => (
                     <li key={step.title} className="flex gap-4">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[rgba(var(--accent-rgb),0.35)] bg-[rgba(var(--accent-rgb),0.12)] text-sm font-bold text-[var(--accent-bright)]">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-accent)] bg-[var(--accent-soft)] text-sm font-bold text-[var(--accent-deep)]">
                         {index + 1}
                       </span>
                       <div>
@@ -246,7 +245,7 @@ export function ProjectDetail({ project }: { project: Project }) {
               ) : null}
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
                 {project.metrics.map((metric) => (
-                  <div key={metric.label} className="rounded-xl border border-[rgba(var(--accent-rgb),0.25)] bg-[rgba(var(--accent-rgb),0.08)] p-4">
+                  <div key={metric.label} className="rounded-xl border border-[var(--border-accent)] bg-[var(--accent-soft)] p-4">
                     <p className="text-xs leading-relaxed text-[var(--muted)]">{metric.label}</p>
                     <p className="mt-1 text-2xl font-black text-[var(--text-strong)]">{metric.value}</p>
                   </div>

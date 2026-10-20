@@ -122,7 +122,7 @@ export function About() {
           {explorationAreas.map((area, index) => (
             <Reveal key={area.title} delay={index * 80}>
               <article className="glass-card card-hover-lift group h-full p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-[rgba(var(--accent-rgb),0.35)] bg-[rgba(var(--accent-rgb),0.14)] text-[var(--accent-bright)] transition-transform duration-300 group-hover:scale-105">
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border)] bg-[var(--accent-soft)] text-[var(--accent)] transition-transform duration-300 group-hover:scale-105">
                   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     {area.icon}
                   </svg>
