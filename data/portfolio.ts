@@ -822,6 +822,9 @@ export const skillGroups: SkillGroup[] = [
       { name: "Figma", description: "Used to explore and design interface ideas." },
       { name: "Canva", description: "Used to create visual materials." },
       { name: "Jupyter Notebook", description: "Used for interactive coding and data exploration." },
+      { name: "Jira", description: "Used for project and task management." },
+      { name: "Trello", description: "Used to organize tasks and track progress." },
+      { name: "Notion", description: "Used for notes, planning, and documentation." },
     ],
   },
   {
